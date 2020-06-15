@@ -33,7 +33,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
     protected function _construct()
     {
         $this->_objectId = 'key_id';
-        $this->_blockGroup = 'Mcfadyen_TextTranslation';
+        $this->_blockGroup = 'TechSolve_TextTranslation';
         $this->_controller = 'adminhtml_translation';
 
         parent::_construct();
