@@ -26,39 +26,22 @@ class Translation extends \Magento\Backend\Block\Widget\Container
     protected function _prepareLayout()
     {
 
-      
+
         $addButtonProps = [
         'id' => 'add_new',
         'label' => __('Add New'),
-        'class' => 'add',
+        'class' => 'add primary',
         'button_class' => '',
-        'class_name' => 'Magento\Backend\Block\Widget\Button\SplitButton',
-        'options' => $this->_getAddButtonOptions(),
+        'onclick' => "setLocation('" . $this->_getCreateUrl() . "')",
         ];
         $this->buttonList->add('add_new', $addButtonProps);
-        
+
 
         $this->setChild(
             'grid',
             $this->getLayout()->createBlock('TechSolve\TextTranslation\Block\Adminhtml\Translation\Grid', 'mcfadyen.translation.grid')
             );
         return parent::_prepareLayout();
-    }
-
-    /**
-     *
-     *
-     * @return array
-     */
-    protected function _getAddButtonOptions()
-    {
-
-        $splitButtonOptions[] = [
-        'label' => __('Add New'),
-        'onclick' => "setLocation('" . $this->_getCreateUrl() . "')"
-        ];
-
-        return $splitButtonOptions;
     }
 
     /**

@@ -124,7 +124,7 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
             'locale',
             'select',
             [
-            'name' => 'locale',
+            'name' => 'language',
             'label' => __(' Locale'),
             'title' => __(' Locale'),
             'required' => true,
