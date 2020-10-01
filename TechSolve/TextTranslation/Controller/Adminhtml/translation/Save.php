@@ -38,6 +38,7 @@ class Save extends \Magento\Backend\App\Action
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
+        $data['locale']  = $data['language'] ?? null;
 
 
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
@@ -50,7 +51,6 @@ class Save extends \Magento\Backend\App\Action
                 $model->load($id);
                 $model->setCreatedAt(date('Y-m-d H:i:s'));
             }
-
 
             $model->setData($data);
 
