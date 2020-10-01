@@ -66,7 +66,7 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
     protected function _prepareForm()
     {
         /* @var $model \TechSolve\TextTranslation\Model\Translation */
-        
+
         $model = $this->_translation->create()->load($this->request->getParam('key_id'));
 
         $isElementDisabled = false;
@@ -130,19 +130,6 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
             'required' => true,
             'disabled' => $isElementDisabled,
             'values' => $this->locale->toOptionArray()
-            ]
-            );
-
-        $fieldset->addField(
-            'page_section',
-            'select',
-            [
-            'name' => 'page_section',
-            'label' => __(' Page Section'),
-            'title' => __(' Page Section'),
-            'required' => true,
-            'disabled' => $isElementDisabled,
-            'values' => ['Header'=>'Header','Footer'=>'Footer','Home page'=>'Home page','Listing page'=>'Listing page','Cart'=>'Cart','My account'=>'My account']
             ]
             );
 

@@ -96,19 +96,6 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
             );
 
         $this->addColumn(
-            'page_section',
-            [
-            'header' => __('Page Section'),
-            'type' => 'string',
-            'index' => 'page_section',
-            'type' => 'options',
-            'options' => ['Header'=>'Header','Footer'=>'Footer','Home page'=>'Home page','Listing page'=>'Listing page','Cart'=>'Cart','My account'=>'My account']
-            ]
-            );
-
-
-
-        $this->addColumn(
            'string',
            [
            'header' => __('Original Text'),
