@@ -3,7 +3,7 @@
  * Short description for class
  *
  * PHP version 7.2
- * 
+ *
  * LICENSE: This source file is subject to version 3.01 of the PHP license
  * that is available through the world-wide-web at the following URI:
  * http://www.php.net/license/3_01.txt.  If you did not receive a copy of
@@ -29,7 +29,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Short description for class
  *
  * PHP version 7.2
- * 
+ *
  * LICENSE: This source file is subject to version 3.01 of the PHP license
  * that is available through the world-wide-web at the following URI:
  * http://www.php.net/license/3_01.txt.  If you did not receive a copy of
@@ -51,37 +51,37 @@ class TranslationImport extends Command
 
     const STORE_ID = 2;
 
-    
+
     const LOCALE = 'en_US';
 
     /**
      * State Object
-     * 
+     *
      * @var \Magento\Framework\App\State
      */
     private $_state;
     /**
      * Directory List
-     * 
+     *
      * @var \Magento\Framework\App\Filesystem\DirectoryList
      */
     private $_directoryList;
     /**
      * Translation Object
-     * 
+     *
      * @var \TechSolve\TextTranslation\Model\TranslationFactory
      */
     private $_translationFactory;
     /**
      * File Object
-     * 
+     *
      * @var \Magento\Framework\File\Csv
      */
     private $_csv;
 
     /**
      * Method constructor
-     * 
+     *
      * @param object \Magento\Framework\App\State                       $_state              StateObject
      * @param object \Magento\Framework\App\Filesystem\DirectoryList    $_directoryList      DirectoryObject
      * @param object \TechSolve\TextTranslation\Model\TranslationFactory $_translationFactory TranslationObject
@@ -93,7 +93,7 @@ class TranslationImport extends Command
         \TechSolve\TextTranslation\Model\TranslationFactory $_translationFactory,
         \Magento\Framework\File\Csv $_csv
         ) {
-        
+
         $this->_state = $_state;
         $this->_directoryList = $_directoryList;
         $this->_translationFactory = $_translationFactory;
@@ -103,7 +103,7 @@ class TranslationImport extends Command
 
     /**
      * Method execute
-     * 
+     *
      * @param object \Symfony\Component\Console\Input\InputInterface   $input  Input
      * @param object \Symfony\Component\Console\Output\OutputInterface $output Output
      *
@@ -116,7 +116,7 @@ class TranslationImport extends Command
         $this->_state->setAreaCode(\Magento\Framework\App\Area::AREA_FRONTEND);
         $app_directory = $this->_directoryList->getPath(\Magento\Framework\App\Filesystem\DirectoryList::APP);
         $full_path_csv = $app_directory.self::CSV_DIR_FILE;
-        
+
         try{
             $csvData = $this->_csv->getData($full_path_csv);
             $translationObject = $this->_translationFactory->create();
@@ -126,7 +126,6 @@ class TranslationImport extends Command
                 $data['store_id'] = self::STORE_ID;
                 $data['translate'] = $_csvData[1];
                 $data['locale'] = self::LOCALE;
-                $data['page_section'] = isset($_csvData[2])?$_csvData[2]:'';
                 $translationObject->setData($data)->save();
             }
 

@@ -6,7 +6,7 @@ use Magento\Framework\Setup\SchemaSetupInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\DB\Ddl\Table;
 /**
- * 
+ *
  */
 class UpgradeSchema implements \Magento\Framework\Setup\UpgradeSchemaInterface {
 	/**
@@ -35,6 +35,15 @@ class UpgradeSchema implements \Magento\Framework\Setup\UpgradeSchemaInterface {
 					'comment' => 'Page Section'
 					]
 					);
+			}
+		}
+		if (version_compare($context->getVersion(), '1.0.4') < 0){
+
+			if ($connection->tableColumnExists($installer->getTable('translation'), 'page_section') === true) {
+				$installer->getConnection()->dropColumn(
+					$installer->getTable('translation'),
+					'page_section'
+				);
 			}
 		}
 

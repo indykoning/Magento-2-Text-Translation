@@ -133,27 +133,6 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
             ]
             );
 
-        $fieldset->addField(
-            'page_section',
-            'select',
-            [
-            'name' => 'page_section',
-            'label' => __(' Page Section'),
-            'title' => __(' Page Section'),
-            'disabled' => $isElementDisabled,
-            'values' => [
-                null=>' ',
-                'Header'=>'Header',
-                'Footer'=>'Footer',
-                'Home page'=>'Home page',
-                'Listing page'=>'Listing page',
-                'Cart'=>'Cart',
-                'My account'=>'My account'
-            ]
-            ]
-            );
-
-
         if (!$model->getId()) {
             $model->setData('is_active', $isElementDisabled ? '0' : '1');
         }
